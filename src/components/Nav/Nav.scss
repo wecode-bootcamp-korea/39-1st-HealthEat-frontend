@@ -14,28 +14,32 @@
     format('woff2');
 }
 
-.nav {
+.nav__bar {
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 12vh;
-}
 
-.nav a {
-  color: black;
-  font-family: 'LINESeedKR-Bd';
-  font-size: 10px;
+  p {
+    color: black;
+    font-family: 'LINESeedKR-Bd';
+    font-size: 10px;
+  }
+}
+.nav__bar__left__store {
   text-decoration: none;
 }
 
-.nav__logo a {
-  color: orangered;
-  font-family: 'BinggraeSamanco-Bold';
-  font-size: 20px;
-  font-weight: 400px;
+.nav__bar__logo {
+  p {
+    color: orangered;
+    font-family: 'BinggraeSamanco-Bold';
+    font-size: 20px;
+    font-weight: 400px;
+  }
 }
 
-.nav__righticon {
+.nav__bar__righticon {
   display: flex;
   align-items: center;
   justify-content: space-between;

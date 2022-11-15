@@ -4,18 +4,20 @@ import './Nav.scss';
 
 export default function Nav() {
   return (
-    <header>
-      <nav className="nav">
-        <div className="nav__left">
-          <a href="/store" className="store">
-            스토어
-          </a>
+    <header className="nav">
+      <nav className="nav__bar">
+        <div className="nav__bar__left">
+          <Link to="/store" className="nav__bar__left__store">
+            <p>스토어</p>
+          </Link>
         </div>
-        <div className="nav__logo">
-          <a href="/main">Health Eat</a>
+        <div className="nav__bar__logo">
+          <Link to="/main" className="nav__bar__left__store">
+            <p>Health Eat</p>
+          </Link>
         </div>
-        <ul className="nav__righticon">
-          <li className="nav__righticon__item">
+        <ul className="nav__bar__righticon">
+          <li className="nav__bar__righticon__item">
             <Link to="/">
               <img
                 src="/images/free-icon-add-cart-6032906.png"
@@ -25,7 +27,7 @@ export default function Nav() {
               />
             </Link>
           </li>
-          <li className="nav__righticon__item">
+          <li className="nav__bar__righticon__item">
             <Link to="/">
               <img
                 src="images/free-icon-user-1077063.png"
