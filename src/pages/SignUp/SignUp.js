@@ -1,5 +1,5 @@
 import React from 'react';
-import './SignUp.scss';
+// import './SignUp.scss';
 
 const SignUp = () => {
   return <h1>SignUp</h1>;
