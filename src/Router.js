@@ -8,18 +8,18 @@ import Main from './pages/Main/Main';
 import SignUp from './pages/SignUp/SignUp';
 import Store from './pages/Store/Store';
 
-const Router = () => {
-  <BrowserRouter>
-    <Nav />
-    <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/store" element={<Store />} />
-      <Route path="/detail/:id" element={<ProductDetail />} />
-    </Routes>
-  </BrowserRouter>;
-};
-
-export default Router;
+export default function Router() {
+  return (
+    <BrowserRouter>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/store" element={<Store />} />
+        <Route path="/detail/:id" element={<ProductDetail />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
