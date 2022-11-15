@@ -7,8 +7,6 @@ import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import SignUp from './pages/SignUp/SignUp';
 import Store from './pages/Store/Store';
-import './styles/reset.scss';
-import './styles/common.scss';
 
 const Router = () => {
   <BrowserRouter>
