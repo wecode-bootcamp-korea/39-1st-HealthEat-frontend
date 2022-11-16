@@ -5,43 +5,98 @@
 .Store__leftbody {
   display: flex;
   position: relative;
-  background-color: yellow;
   img {
     width: 650px;
   }
 }
-
 .Store__leftbody__bodys {
   position: absolute;
-  width: 45px;
-  img {
-    width: 100%;
+  width: 100%;
+  height: 100%;
+  // 버튼 초기화
+  & > button {
+    overflow: hidden;
+    border: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    text-indent: -9999px;
   }
-  &.lefteye {
-    top: 50px;
-    left: 276px;
+
+  .eyes {
+    position: absolute;
+    top: 44px;
+    left: 268px;
+    width: 115px;
+    height: 55px;
+    background: url(../../assets/images/store/eye1.png) 0px 0px,
+      url(../../assets/images/store/eye1.png) 58px 0px;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &:hover {
+      background: url(../../assets/images/store/eye.png) 0px 0px,
+        url(../../assets/images/store/eye.png) 58px 0px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
-  &.righteye {
-    top: 50px;
-    left: 329px;
+
+  .intestine {
+    position: absolute;
+    top: 310px;
+    left: 273px;
+    width: 100px;
+    height: 100px;
+    background-image: url(../../assets/images/store/free-icon-large-intestine-4615532.png);
+
+    &:hover {
+      background-image: url(../../assets/images/store/free-icon-large-intestine-4615540.png);
+    }
   }
-  &.intestine {
-    top: 334px;
-    left: 290px;
-    width: 70px;
+
+  .liver {
+    position: absolute;
+    top: 229px;
+    left: 272px;
+    width: 100px;
+    height: 100px;
+    background-image: url(../../assets/images/store/free-icon-liver-288228.png);
+
+    &:hover {
+      background-image: url(../../assets/images/store/free-icon-liver-361496.png);
+    }
   }
-  &.liver {
-    top: 280px;
-    left: 282px;
-    background-color: azure;
-  }
-  &.joint {
-    top: 482px;
-    left: 237px;
+
+  .joint {
+    position: absolute;
+    top: 441px;
+    left: 214px;
+    width: 100px;
+    height: 100px;
+    background-image: url(../../assets/images/store/free-icon-joint-4701886.png);
+
+    &:hover {
+      background-image: url(../../assets/images/store/free-icon-joint-4710034.png);
+    }
   }
 }
-
 .Store__productmenu {
   width: 1100px;
   background-color: red;
+}
+
+.Store__productmenu__drugbox {
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: white;
+  text-align: center;
+  img {
+    width: 100%;
+    height: 200px;
+  }
 }
