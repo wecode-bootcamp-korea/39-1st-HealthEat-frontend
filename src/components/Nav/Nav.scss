@@ -20,10 +20,11 @@
   justify-content: space-around;
   height: 12vh;
 
-  p {
+  &-left-store-text {
     color: black;
     font-family: 'LINESeedKR-Bd';
     font-size: 25px;
+    text-decoration: none;
   }
   &-left-store {
     color: orangered;

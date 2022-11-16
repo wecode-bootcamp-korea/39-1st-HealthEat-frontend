@@ -7,7 +7,7 @@ export default function Nav() {
     <header className="nav">
       <nav className="nav-bar">
         <div className="nav-bar-left">
-          <Link to="/store" className="nav-bar-left-store">
+          <Link to="/store" className="nav-bar-left-store-text">
             <p>스토어</p>
           </Link>
         </div>
