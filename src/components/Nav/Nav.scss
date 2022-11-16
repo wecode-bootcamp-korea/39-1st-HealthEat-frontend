@@ -14,7 +14,7 @@
     format('woff2');
 }
 
-.nav__bar {
+.nav-bar {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -23,25 +23,21 @@
   p {
     color: black;
     font-family: 'LINESeedKR-Bd';
-    font-size: 10px;
+    font-size: 25px;
   }
-}
-.nav__bar__left__store {
-  text-decoration: none;
-}
-
-.nav__bar__logo {
-  p {
+  &-left-store {
     color: orangered;
+    text-decoration: none;
+  }
+  &-logo {
     font-family: 'BinggraeSamanco-Bold';
-    font-size: 20px;
+    font-size: 50px;
     font-weight: 400px;
   }
-}
-
-.nav__bar__righticon {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 50px;
+  &-righticon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 65px;
+  }
 }
