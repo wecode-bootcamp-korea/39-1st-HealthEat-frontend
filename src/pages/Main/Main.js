@@ -1,8 +1,15 @@
 import React from 'react';
 import './Main.scss';
+import PromotionSlide from './PromotionSlide/PromotionSlide';
+import MenuList from './MenuList/MenuList';
 
 const Main = () => {
-  return <h1>Main</h1>;
+  return (
+    <>
+      <PromotionSlide />
+      <MenuList />
+    </>
+  );
 };
 
 export default Main;

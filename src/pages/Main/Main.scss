@@ -1,0 +1,40 @@
+@import './../../styles/common';
+@import './../../styles/mixin';
+@import './../../styles/reset';
+
+.promotion-slide {
+  width: 100vw;
+}
+
+.menu-list {
+  @include flex(column, center, center);
+  width: 100vw;
+  height: 30vh;
+
+  &__title {
+    @include flex(row, flex-start, center);
+    span {
+      font-size: larger;
+      font-weight: 800;
+    }
+  }
+
+  &__items {
+    @include flex(row, center, center);
+    margin: 40px 0px;
+
+    &__each-item {
+      .menu-icon {
+        width: 65px;
+        height: 65px;
+        margin: 0px 20px;
+        border-radius: 40%;
+      }
+
+      .menu-name {
+        margin: 5px 0px;
+        text-align: center;
+      }
+    }
+  }
+}
