@@ -1,0 +1,47 @@
+.Store {
+  display: flex;
+}
+
+.Store__leftbody {
+  display: flex;
+  position: relative;
+  background-color: yellow;
+  img {
+    width: 650px;
+  }
+}
+
+.Store__leftbody__bodys {
+  position: absolute;
+  width: 45px;
+  img {
+    width: 100%;
+  }
+  &.lefteye {
+    top: 50px;
+    left: 276px;
+  }
+  &.righteye {
+    top: 50px;
+    left: 329px;
+  }
+  &.intestine {
+    top: 334px;
+    left: 290px;
+    width: 70px;
+  }
+  &.liver {
+    top: 280px;
+    left: 282px;
+    background-color: azure;
+  }
+  &.joint {
+    top: 482px;
+    left: 237px;
+  }
+}
+
+.Store__productmenu {
+  width: 1100px;
+  background-color: red;
+}
