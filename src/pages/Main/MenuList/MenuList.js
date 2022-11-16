@@ -16,7 +16,7 @@ const imageSrc = ['', '', '', '', '', '', ''];
 
 const MenuList = () => {
   return (
-    <div className="menu-list">
+    <article className="menu-list">
       <div className="menu-list__title">
         <span>고민별 상품 보기</span>
       </div>
@@ -25,7 +25,7 @@ const MenuList = () => {
           <ListItem key={idx} name={data} imageSrc={imageSrc} />
         ))}
       </div>
-    </div>
+    </article>
   );
 };
 

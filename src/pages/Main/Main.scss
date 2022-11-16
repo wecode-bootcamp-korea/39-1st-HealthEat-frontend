@@ -1,6 +1,7 @@
 @import './../../styles/common';
 @import './../../styles/mixin';
 @import './../../styles/reset';
+@import './../../styles/variables';
 
 .promotion-slide {
   width: 100vw;
@@ -28,7 +29,8 @@
         width: 65px;
         height: 65px;
         margin: 0px 20px;
-        border-radius: 40%;
+        border-radius: 30%;
+        background-color: #f2f2f2;
       }
 
       .menu-name {
