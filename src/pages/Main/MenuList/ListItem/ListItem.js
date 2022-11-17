@@ -2,7 +2,7 @@ import React from 'react';
 
 const ListItem = ({ name, imageSrc }) => {
   return (
-    <div className="menu-list__items__each-item">
+    <div className="menu-list-each-item">
       <div className="menu-icon">
         <img src={imageSrc} />
       </div>
