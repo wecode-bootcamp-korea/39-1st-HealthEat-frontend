@@ -8,6 +8,11 @@ import {
 const PromotionSlide = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderData, setSliderData] = useState([]);
+  // const [slideLength, setSlideLength] = useState(0);
+  // setSlideLength();
+  const slideLength = sliderData.length;
+
+  console.log(slideLength);
 
   useEffect(() => {
     fetch('/data/sliderData.json', {
@@ -23,27 +28,29 @@ const PromotionSlide = () => {
     setCurrentSlide(0);
   }, []);
 
-  useEffect(() => {
-    auto();
-    return () => clearInterval(slideInterval);
-  }, [currentSlide]);
+  const auto = () => {
+    slideInterval = setInterval(nextSlide, intervalTime);
+  };
 
-  const slideLength = sliderData.length;
   let slideInterval = null;
   let intervalTime = 5500;
 
+  useEffect(() => {
+    auto();
+    return () => clearInterval(slideInterval);
+  }, [auto, currentSlide, slideInterval]);
+
   const nextSlide = () => {
     setCurrentSlide((currentSlide + 1) % slideLength);
+    console.log('sildeLength : ' + slideLength);
+    console.log(currentSlide);
   };
 
   const prevSlide = () => {
     setCurrentSlide((currentSlide - 1 + 4) % slideLength);
   };
 
-  const auto = () => {
-    slideInterval = setInterval(nextSlide, intervalTime);
-  };
-
+  console.log(currentSlide);
   return (
     <article className="promotion-slide">
       {sliderData.map((slide, index) => {
