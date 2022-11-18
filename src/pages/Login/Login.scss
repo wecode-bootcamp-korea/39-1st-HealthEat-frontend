@@ -15,13 +15,13 @@
   width: 50px;
   margin-bottom: 40px;
 }
-.userInput {
-  padding: 0 30px;
+.user-input {
   width: 450px;
   height: 56px;
   margin-bottom: 15px;
-  border-radius: 4px;
+  padding: 0 30px;
   border: 1px solid #d7d7d7;
+  border-radius: 4px;
 
   &::placeholder {
     color: #b7b7b7;
@@ -29,7 +29,7 @@
   }
 }
 
-.loginForm {
+.login-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,27 +41,27 @@ input:focus {
 }
 
 .btn {
-  border-radius: 50px;
   width: 450px;
   height: 48px;
   border: none;
-  background-color: $main-color;
+  border-radius: 50px;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
 }
 
-.findPw {
+.find-pw-body {
   display: flex;
   justify-content: center;
+  width: 100%;
   margin-top: 15px;
   color: rgba(51, 51, 51, 0.6);
 }
 
-.pwA {
+.find-pw {
   margin-right: 15px;
 }
 
-.idA {
+.join-user {
   margin-left: 15px;
 }
