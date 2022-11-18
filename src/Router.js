@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Nav from './components/Nav/Nav';
 import Cart from './pages/Cart/Cart';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Login from './pages/Login/Login';
@@ -8,6 +7,7 @@ import Main from './pages/Main/Main';
 import SignUp from './pages/SignUp/SignUp';
 import Store from './pages/Store/Store';
 import Footer from './components/Footer/Footer';
+import Nav from './components/Nav/Nav';
 
 export default function Router() {
   return (
