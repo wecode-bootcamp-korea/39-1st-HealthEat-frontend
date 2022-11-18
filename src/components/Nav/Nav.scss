@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'BinggraeSamanco-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/BinggraeSamanco-Bold.woff')
+    format('woff');
+}
+
+@font-face {
+  font-family: 'LINESeedKR-Bd';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2')
+    format('woff2');
+}
+.nav {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  background-color: white;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 12vh;
+
+  &-left-store-text {
+    color: black;
+    font-family: 'LINESeedKR-Bd';
+    font-size: 25px;
+    text-decoration: none;
+  }
+  &-left-store {
+    color: orangered;
+    text-decoration: none;
+  }
+  &-logo {
+    font-family: 'BinggraeSamanco-Bold';
+    font-size: 50px;
+    font-weight: 400px;
+  }
+  &-righticon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 65px;
+  }
+}

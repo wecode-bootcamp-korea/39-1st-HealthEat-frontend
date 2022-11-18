@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "drugImg": "/images/Store/6.png",
+    "categoryImg": "/images/Store/eye-care.png",
+    "companyName": "[큐알론]",
+    "productName": "큐알론 점안액 0.3%",
+    "discount": "50%",
+    "discountPrice": "15,000원",
+    "price": "30,000원"
+  },
+  {
+    "id": 2,
+    "drugImg": "/images/Store/6.png",
+    "categoryImg": "/images/Store/eye-care.png",
+    "companyName": "[큐알론]",
+    "productName": "큐알론 점안액 0.3%",
+    "discount": "50%",
+    "discountPrice": "15,000원",
+    "price": "23,000원"
+  },
+  {
+    "id": 3,
+    "drugImg": "/images/Store/6.png",
+    "categoryImg": "/images/Store/eye-care.png",
+    "companyName": "[큐알론]",
+    "productName": "큐알론 점안액 0.3%",
+    "discount": "50%",
+    "discountPrice": "15,000원",
+    "price": "32,000원"
+  },
+  {
+    "id": 4,
+    "drugImg": "/images/Store/6.png",
+    "categoryImg": "/images/Store/eye-care.png",
+    "companyName": "[큐알론]",
+    "productName": "큐알론 점안액 0.3%",
+    "discount": "50%",
+    "discountPrice": "15,000원",
+    "price": "440,000원"
+  }
+]
