@@ -2,27 +2,25 @@ import React from 'react';
 import ListItem from './ListItem/ListItem';
 
 const MENU_LIST_DATAS = [
-  '눈',
-  '간',
-  '관절 / 뼈',
-  '장',
-  '다이어트',
-  '위 /소화',
-  '피부',
-  '피로 / 활력',
+  { name: '눈', image: '' },
+  { name: '간', image: '' },
+  { name: '관절 / 뼈', image: '' },
+  { name: '장', image: '' },
+  { name: '다이어트', image: '' },
+  { name: '위 / 소화', image: '' },
+  { name: '피부', image: '' },
+  { name: '피로 / 활력', image: '' },
 ];
-
-const imageSrc = ['', '', '', '', '', '', ''];
 
 const MenuList = () => {
   return (
     <article className="menu-list">
       <div className="menu-list-title">
-        <span>고민별 상품 보기</span>
+        <span className="menu-list-title-name">고민별 상품 보기</span>
       </div>
       <div className="menu-list-items">
         {MENU_LIST_DATAS.map((data, idx) => (
-          <ListItem key={idx} name={data} imageSrc={imageSrc} />
+          <ListItem key={idx} name={data.name} imageSrc={data.image} />
         ))}
       </div>
     </article>

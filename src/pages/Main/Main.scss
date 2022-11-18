@@ -41,7 +41,8 @@
 
   &-title {
     @include flex(row, flex-start, center);
-    span {
+
+    &-name {
       font-size: larger;
       font-weight: 800;
     }
