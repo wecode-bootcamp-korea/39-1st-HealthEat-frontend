@@ -8,11 +8,7 @@ import {
 const PromotionSlide = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderData, setSliderData] = useState([]);
-  // const [slideLength, setSlideLength] = useState(0);
-  // setSlideLength();
   const slideLength = sliderData.length;
-
-  console.log(slideLength);
 
   useEffect(() => {
     fetch('/data/sliderData.json', {
@@ -42,15 +38,12 @@ const PromotionSlide = () => {
 
   const nextSlide = () => {
     setCurrentSlide((currentSlide + 1) % slideLength);
-    console.log('sildeLength : ' + slideLength);
-    console.log(currentSlide);
   };
 
   const prevSlide = () => {
     setCurrentSlide((currentSlide - 1 + 4) % slideLength);
   };
 
-  console.log(currentSlide);
   return (
     <article className="promotion-slide">
       {sliderData.map((slide, index) => {
