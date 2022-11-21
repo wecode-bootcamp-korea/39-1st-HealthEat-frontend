@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import './Login.scss';
 import { Link, useNavigate } from 'react-router-dom';
-
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [userValue, setUserValue] = useState({
+    email: '',
+    password: '',
+  });
+
   const navigate = useNavigate();
 
-  const handleChangeEmail = e => {
-    setEmail(e.target.value);
+  const { email, password } = userValue;
+
+  const emailRegExp =
+    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+
+  const isEmailValid = emailRegExp.test(email);
+
+  const getUserInfo = e => {
+    const { name, value } = e.target;
+    setUserValue({ ...userValue, [name]: value });
   };
 
-  const handleChangePassword = e => {
-    setPassword(e.target.value);
-  };
+  console.log(isEmailValid);
 
   const alertMsg = e => {
     e.preventDefault();
@@ -26,7 +34,7 @@ const Login = () => {
   };
 
   const login = () => {
-    fetch('http://10.58.52.124:3000/users/signin', {
+    fetch('http://10.58.52.140:3000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -39,7 +47,6 @@ const Login = () => {
       .then(response => response.json())
       .then(data => {
         localStorage.setItem('token', data.accessToken);
-        navigate('/login');
       });
   };
 
@@ -50,18 +57,23 @@ const Login = () => {
         <input
           className="user-input"
           type="text"
+          name="email"
           placeholder="이메일 또는 전화번호를 입력하세요."
+          minLength="5"
+          maxLength="30"
           title="아이디입력"
-          onChange={handleChangeEmail}
+          onChange={getUserInfo}
         />
+        <span>{isEmailValid ? '' : '이메일 형식에 맞게 작성해주세요'}</span>
         <input
           className="user-input"
           type="password"
+          name="password"
           placeholder="비밀번호를 입력하세요."
-          minlength="5"
-          maxlength="30"
+          minLength="5"
+          maxLength="30"
           title="비밀번호입력"
-          onChange={handleChangePassword}
+          onChange={getUserInfo}
         />
 
         <button className="btn" type="submit">
