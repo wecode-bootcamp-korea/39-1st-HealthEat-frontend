@@ -94,6 +94,13 @@
     font-size: 32px;
     font-weight: 700;
   }
+  .product-order-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 25px;
+    font-weight: 500;
+  }
 }
 .Store-productmenu-drugbox {
   display: flex;
@@ -101,6 +108,7 @@
   margin: 0 -15px;
   overflow: hidden;
   text-align: center;
+
   .Store-productmenu-drug {
     width: calc(33.333% - 30px);
     margin: 0 15px 30px;
@@ -113,9 +121,8 @@
   }
 }
 
-.Store-productmenu-drug {
-}
 .text-area {
+  text-decoration-line: none;
   img {
     width: 40px;
     height: 40px;

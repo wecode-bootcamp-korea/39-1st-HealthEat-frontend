@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "drugImg": "/images/Store/6.png",
+    "thumbnail": "/images/Store/6.png",
     "categoryImg": "/images/Store/eye-care.png",
-    "companyName": "[큐알론]",
-    "productName": "큐알론 점안액 0.3%",
-    "discount": "50%",
+    "brand_id": "[큐알론]",
+    "name": "큐알론 점안액 0.3%",
+    "discount_rate": "50%",
     "discountPrice": "15,000원",
     "price": "30,000원"
   },
