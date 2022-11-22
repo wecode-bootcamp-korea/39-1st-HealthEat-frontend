@@ -6,8 +6,53 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [userValue, setUserValue] = useState({
+    email: '',
+  });
+
+  const { email } = userValue;
+
+  const emailRegExp =
+    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+
+  const isEmailValid = emailRegExp.test(email);
+
+  const getUserInfo = e => {
+    const { name, value } = e.target;
+    setUserValue({ ...userValue, [name]: value });
+  };
+
+  console.log(isEmailValid);
+
+  const [agreeList, setAgreeList] = useState({
+    age: false,
+    terms: false,
+    marketing: false,
+  });
+
+  const { age, terms, marketing } = agreeList;
+
+  const handleCheckbox = e => {
+    const { name } = e.target;
+    setAgreeList(prev => ({ ...prev, [name]: !agreeList[name] }));
+  };
+
+  const handleAllcheck = () => {
+    const isAllChecked = Object.values(agreeList).every(el => el === true);
+
+    let newObj = {};
+    if (isAllChecked) {
+      for (let key in agreeList) {
+        newObj = { ...newObj, [key]: false };
+      }
+    } else {
+      for (let key in agreeList) {
+        newObj = { ...newObj, [key]: true };
+      }
+    }
+    setAgreeList(newObj);
+  };
 
   const handleChangeName = e => {
     setName(e.target.value);
@@ -15,9 +60,7 @@ const SignUp = () => {
   const handleChangeNumber = e => {
     setPhone(e.target.value);
   };
-  const handleChangeEmail = e => {
-    setEmail(e.target.value);
-  };
+
   const handleChangePassword = e => {
     setPassword(e.target.value);
   };
@@ -39,6 +82,7 @@ const SignUp = () => {
   return (
     <>
       {/* <h1 className="signup-title">SignUp</h1> */}
+      <form />
       <h2 className="signup-title">회원가입</h2>
       <div className="all-inputs">
         <label htmlFor="user-name">이름</label>
@@ -63,8 +107,9 @@ const SignUp = () => {
           type="email"
           placeholder="아이디(이메일)을 입력해 주세요."
           value={email}
-          onChange={handleChangeEmail}
+          onChange={getUserInfo}
         />
+        <span>{isEmailValid ? '' : '이메일 형식에 맞게 작성해주세요'}</span>
         <label htmlFor="user-password">비밀번호</label>
         <input
           id="user-password"
@@ -82,26 +127,34 @@ const SignUp = () => {
       </div>
       <div className="all-terms-agree-wrap">
         <label>
-          <input type="checkbox" name="agree" />
+          <input type="checkbox" name="agree" onChange={handleAllcheck} />
           <span />
           모두 동의하기
         </label>
         <label />
-        <input type="checkbox" name="agree" />만 14세 이상입니다
-        <a href="http://www.naver.com" target="_blank" rel="noreferrer" />
-        전문보기
-        <input type="checkbox" name="agree" />
+        <input
+          type="checkbox"
+          name="age"
+          checked={age}
+          onChange={handleCheckbox}
+        />
+        만 14세 이상입니다
+        <input
+          type="checkbox"
+          name="terms"
+          checked={terms}
+          onChange={handleCheckbox}
+        />
         이용 약관 동의
-        <a href="http://www.naver.com" target="_blank" rel="noreferrer" />
-        전문보기
-        <input type="checkbox" name="agree" />
+        <input
+          type="checkbox"
+          name="marketing"
+          checked={marketing}
+          onChange={handleCheckbox}
+        />
         마케팅 수신 동의 <p id="option">(선택)</p>
-        <a href="http://www.naver.com" target="_blank" rel="noreferrer" />
-        전문보기
       </div>
-      <button className="signup-btn" onClick={registeSignup}>
-        회원가입
-      </button>
+      <button className="signup-btn">회원가입</button>
     </>
   );
 };

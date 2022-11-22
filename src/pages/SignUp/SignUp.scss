@@ -42,20 +42,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  // input[type='checkbox'] {
-  //   width: 15px;
-  //   height: 15px;
-  //   border: 1px solid black;
-  //   border-radius: 50%;
-  //   appearance: none;
-  //   cursor: pointer;
-
-  // &:checked {
-  //   background-color: orange;
-  //   border: none;
-  // }
-  // }
+  align-items: center;
 
   input[id='inputCheck'] {
     display: inline-block;
@@ -71,7 +58,7 @@
   width: 450px;
   height: 48px;
   border: none;
-  background-color: blue;
+  background-color: #0026ca;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
