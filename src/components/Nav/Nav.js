@@ -12,7 +12,7 @@ export default function Nav() {
           </Link>
         </div>
         <div className="nav-bar-logo">
-          <Link to="/main" className="nav-bar-left-store">
+          <Link to="/" className="nav-bar-left-store">
             Health Eat
           </Link>
         </div>
