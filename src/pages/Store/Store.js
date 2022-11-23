@@ -11,8 +11,11 @@ const Store = () => {
 
   useEffect(() => {
     fetch(
-      `http://10.58.52.143:3000/products?${searchParams.toString()}_start=&{offset}&_limit=${limit}`,
+      `http://10.58.52.143:3000/products?${searchParams.toString()}&sortMethod=id&offset=${Number(
+        offset
+      )}`,
       {
+        // _limit=${limit}&_start=${offset}
         //fetch('http://10.58.52.143:3000/products/best', {
         method: 'GET',
       }
@@ -21,21 +24,27 @@ const Store = () => {
       .then(productData => {
         setDrugs(productData.products);
       });
-  }, [searchParams.toString]);
-  console.log(drugs);
+  }, [searchParams.toString(), offset, limit]);
+
+  // , offset, limit
+
+  const movePage = pageNumber => {
+    searchParams.set('offset', (pageNumber - 1) * 6);
+    setSearchParams(searchParams);
+  };
 
   const sendEyes = () => {
-    setSearchParams({ category_id: 1 });
+    setSearchParams({ category: 1 });
   };
 
   const sendIntestine = () => {
-    setSearchParams({ category_id: 4 });
+    setSearchParams({ category: 4 });
   };
   const sendLiver = () => {
-    setSearchParams({ category_id: 2 });
+    setSearchParams({ category: 2 });
   };
   const sendJoint = () => {
-    setSearchParams({ category_id: 3 });
+    setSearchParams({ category: 3 });
   };
 
   return (
@@ -74,9 +83,9 @@ const Store = () => {
               <Link key={product.id} to={`/detail/${product.id}`}>
                 <img alt={`${product.id}번약`} src={product.thumbnail} />
                 <div className="text-area">
-                  <img alt="눈" src={product.category_image} />
+                  <img alt="눈" src={product.category_icon} />
                   <h3>
-                    <em>{product.brand_id}</em>
+                    <em>{product.brand_name}</em>
                     {product.name}
                   </h3>
                   <p>
@@ -96,6 +105,12 @@ const Store = () => {
             </li>
           ))}
         </ul>
+        <div>
+          {/* <button onClick={() => movePage(1)}>1</button>
+          <button onClick={() => movePage(2)}>2</button>
+          <button onClick={() => movePage(3)}>3</button>
+          <button onClick={() => movePage(4)}>4</button> */}
+        </div>
       </div>
     </div>
   );
