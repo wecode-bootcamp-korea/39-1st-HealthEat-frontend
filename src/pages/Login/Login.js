@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.scss';
 import { Link, useNavigate } from 'react-router-dom';
+
 const Login = () => {
   const [userValue, setUserValue] = useState({
     email: '',
@@ -8,21 +9,16 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
-
   const { email, password } = userValue;
 
   const emailRegExp =
     /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-
   const isEmailValid = emailRegExp.test(email);
 
   const getUserInfo = e => {
     const { name, value } = e.target;
     setUserValue({ ...userValue, [name]: value });
   };
-
-  console.log(isEmailValid);
-
   const alertMsg = e => {
     e.preventDefault();
     if (email.length === 0 || password.length === 0) {
@@ -46,7 +42,8 @@ const Login = () => {
     })
       .then(response => response.json())
       .then(data => {
-        localStorage.setItem('token', data.accessToken);
+        localStorage.setItem('token', data.accessToken); // 로컬 스토리지에 토큰 저장 하는 코드!
+        navigate('/main'); // 로그인 성공시 main 페이지로 가는 코드!
       });
   };
 
@@ -64,7 +61,9 @@ const Login = () => {
           title="아이디입력"
           onChange={getUserInfo}
         />
-        <span>{isEmailValid ? '' : '이메일 형식에 맞게 작성해주세요'}</span>
+        <span className="emailRewrite">
+          {isEmailValid ? '' : '이메일 형식에 맞게 작성해주세요'}
+        </span>
         <input
           className="user-input"
           type="password"
@@ -75,12 +74,10 @@ const Login = () => {
           title="비밀번호입력"
           onChange={getUserInfo}
         />
-
         <button className="btn" type="submit">
           로그인
         </button>
       </form>
-
       <div className="find-pw-body">
         <Link className="find-pw" to="/">
           비밀번호 찾기
@@ -93,5 +90,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;
