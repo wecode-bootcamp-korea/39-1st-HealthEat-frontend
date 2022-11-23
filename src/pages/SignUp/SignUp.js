@@ -89,10 +89,8 @@ const SignUp = () => {
         email: email,
         password: password,
       }),
-    }).then(() => navigate('/SignIn'));
+    }).then(() => navigate('/main'));
   };
-
-  console.log(isEmailError);
 
   return (
     <>
