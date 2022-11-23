@@ -140,7 +140,7 @@ const SignUp = () => {
           />
         </div>
         <section className="agree-container">
-          <div className="checkbox-item first">
+          <div className="checkbox-item">
             <input
               type="checkbox"
               name="agree"
