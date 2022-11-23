@@ -1,0 +1,27 @@
+@import './../../styles/common';
+@import './../../styles/mixin';
+
+.product-detail {
+  @include flex(row, center, center);
+
+  .product-demonstration {
+    @include flex(column, flex-start, center);
+    width: 55vw;
+    // .product-image {
+    // }
+    // .product-description {
+    // }
+    // .product-review {
+    // }
+  }
+
+  .buy-bar-area {
+    width: 30vw;
+  }
+
+  .buy-bar-content {
+    position: fixed;
+    right: 5vw;
+    width: 30vw;
+  }
+}

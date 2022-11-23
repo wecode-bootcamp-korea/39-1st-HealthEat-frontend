@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "category_id": 1,
+    "brand_id": 1,
+    "name": "히알루론산 스피루리나",
+    "information": "피부 보습을 위한 히알루론산과 피부 건강·항산화 기능을 위한 스피루리나에 국산 쌀겨 추출물(부원료)를 더하여 우수한 품질관리를 통해 만들었습니다.",
+    "thumbnail": "https://i.ibb.co/0VwjJR9/1.png",
+    "target_id": 1,
+    "price": 19000,
+    "made_from": "한국",
+    "expiry_date": "2024-12-31",
+    "stock": 53,
+    "discount_rate": 0.3
+  },
+  {
+    "id": 2,
+    "category_id": 1,
+    "brand_id": 1,
+    "name": "콜라겐",
+    "information": "프랑스산 저분자 피쉬 콜라겐 원료를 사용하여 우수한 품질관리를 통해 만들었습니다.",
+    "thumbnail": "https://i.ibb.co/0VwjJR9/1.png",
+    "target_id": 1,
+    "price": 26500,
+    "made_from": "한국",
+    "expiry_date": "2024-12-31",
+    "stock": 90,
+    "discount_rate": 0.2
+  },
+  {
+    "id": 3,
+    "category_id": 1,
+    "brand_id": 2,
+    "name": "프레시브레스 쿨링민트",
+    "information": "미국 메가브레스 본사에서 한국 식약처 기준에 맞춰 직접 제작한 공식 수입제품입니다. 구강 내 프라그 및 악취제거는 물론 자일리톨과 쿨링민트의 청량감을 더했습니다.",
+    "thumbnail": "https://i.ibb.co/0VwjJR9/1.png",
+    "target_id": 1,
+    "price": 15000,
+    "made_from": "미국",
+    "expiry_date": "2025-03-01",
+    "stock": 80,
+    "discount_rate": 0.31
+  }
+]
