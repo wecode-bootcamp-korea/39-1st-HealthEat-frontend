@@ -1,19 +1,16 @@
 @import '../../styles/common';
 @import '../../styles/mixin';
-
 body {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
-
 .login {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
 }
-
 .logo {
   width: 50px;
   margin-bottom: 40px;
@@ -25,24 +22,20 @@ body {
   padding: 0 30px;
   border: 1px solid #d7d7d7;
   border-radius: 4px;
-
   &::placeholder {
     color: #b7b7b7;
     font-size: 16px;
   }
-
   &:focus {
     outline: none;
   }
 }
-
 .login-form {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
 }
-
 .btn {
   width: 450px;
   height: 48px;
@@ -52,7 +45,6 @@ body {
   font-size: 16px;
   font-weight: 700;
 }
-
 .find-pw-body {
   display: flex;
   justify-content: center;
@@ -60,16 +52,13 @@ body {
   margin-top: 15px;
   color: rgba(51, 51, 51, 0.6);
 }
-
 .find-pw {
   margin-right: 15px;
 }
-
 .join-user {
   margin-left: 15px;
 }
-
-.emailRewrite {
+.emailrewrite {
   color: red;
   font-size: 15px;
 }
