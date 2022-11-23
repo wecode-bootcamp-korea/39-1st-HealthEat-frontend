@@ -1,3 +1,6 @@
+@import '../../styles/common';
+@import '../../styles/mixin';
+
 .Store {
   display: flex;
   padding-top: 12vh;
@@ -95,9 +98,18 @@
     font-weight: 700;
   }
   .product-order-list {
+    h5 {
+      margin: 30px;
+      font-weight: 600;
+      span {
+        color: #ff5c35;
+        font-weight: bolder;
+      }
+    }
+
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: start;
     font-size: 25px;
     font-weight: 500;
   }

@@ -89,7 +89,11 @@ const Store = () => {
         </div>
       </div>
       <div className="Store-productmenu">
-        <div className="product-order-list">{/* <h2>베스트 상품</h2> */}</div>
+        <div className="product-order-list">
+          <h5>
+            총 <span>{count}</span>개
+          </h5>
+        </div>
         <ul className="Store-productmenu-drugbox">
           {drugs.map(product => (
             <li key={product.id} className="Store-productmenu-drug">
