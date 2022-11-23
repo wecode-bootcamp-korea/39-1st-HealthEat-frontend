@@ -15,7 +15,7 @@ const SignUp = () => {
     const { name, value } = e.target;
     setUserValue({ ...userValue, [name]: value });
     const emailRegExp =
-      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+      /^[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
     if (emailRegExp.test(email) || value === '') {
       setIsEmailError(false);
     } else {
@@ -64,7 +64,9 @@ const SignUp = () => {
   const handleChangePassword = e => {
     setPassword(e.target.value);
   };
+
   const registeSignup = () => {
+    console.log('test');
     fetch('http://10.58.52.143:3000/users/signup', {
       method: 'POST',
       headers: {
@@ -76,7 +78,15 @@ const SignUp = () => {
         email: email,
         password: password,
       }),
-    }).then(() => navigate('/login'));
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'success') {
+          navigate('/login');
+        } else {
+          alert('로그인 실패');
+        }
+      });
   };
   return (
     <>
