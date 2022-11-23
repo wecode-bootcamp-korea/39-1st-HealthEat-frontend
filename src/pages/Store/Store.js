@@ -8,44 +8,58 @@ const Store = () => {
   const offset = searchParams.get('offset');
   const limit = searchParams.get('limit');
   const [drugs, setDrugs] = useState([]);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     fetch(
-      `http://10.58.52.143:3000/products?${searchParams.toString()}&sortMethod=id&offset=${Number(
-        offset
-      )}`,
-      {
-        // _limit=${limit}&_start=${offset}
-        //fetch('http://10.58.52.143:3000/products/best', {
-        method: 'GET',
-      }
+      `http://10.58.52.143:3000/products?${searchParams.toString()}&sortMethod=id`
     )
       .then(response => response.json())
       .then(productData => {
+        setCount(productData.totalCount[0].count);
         setDrugs(productData.products);
       });
   }, [searchParams.toString(), offset, limit]);
-
-  // , offset, limit
+  console.log(drugs);
 
   const movePage = pageNumber => {
     searchParams.set('offset', (pageNumber - 1) * 6);
     setSearchParams(searchParams);
   };
 
-  const sendEyes = () => {
-    setSearchParams({ category: 1 });
+  // const sendEyes = () => {
+  //   setSearchParams({ category: 1 });
+  // };
+  // const sendIntestine = () => {
+  //   setSearchParams({ category: 4 });
+  // };
+  // const sendLiver = () => {
+  //   setSearchParams({ category: 2 });
+  // };
+  // const sendJoint = () => {
+  //   setSearchParams({ category: 3 });
+  // };
+
+  const categories = {
+    sendEyes: 1,
+    sendIntestine: 4,
+    sendLiver: 2,
+    sendJoint: 3,
   };
 
-  const sendIntestine = () => {
-    setSearchParams({ category: 4 });
+  const sendCategory = cate => {
+    setSearchParams({ category: categories[cate] });
   };
-  const sendLiver = () => {
-    setSearchParams({ category: 2 });
-  };
-  const sendJoint = () => {
-    setSearchParams({ category: 3 });
-  };
+
+  let drugsIndexArray = [];
+  let j = 1;
+
+  for (let i = 1; i <= count; i++) {
+    if (i % 6 === 1) {
+      drugsIndexArray.push(j);
+      j++;
+    }
+  }
 
   return (
     <div className="Store">
@@ -54,29 +68,28 @@ const Store = () => {
           <img alt="사람이미지" src="/images/Store/person-standing.png" />
         </div>
         <div className="Store-leftbody-bodys">
-          <button onClick={sendEyes} className="eyes">
+          <button onClick={() => sendCategory('sendEyes')} className="eyes">
             눈
           </button>
 
-          <button onClick={sendIntestine} className="intestine">
+          <button
+            onClick={() => sendCategory('sendIntestine')}
+            className="intestine"
+          >
             소화기관
           </button>
 
-          <button onClick={sendLiver} className="liver">
+          <button onClick={() => sendCategory('sendLiver')} className="liver">
             간
           </button>
 
-          <button onClick={sendJoint} className="joint">
+          <button onClick={() => sendCategory('sendJoint')} className="joint">
             관절
           </button>
         </div>
       </div>
       <div className="Store-productmenu">
-        <div className="product-order-list">
-          <h2>베스트 상품</h2>
-          {/* <p>높은 가격</p>
-          <p> 낮은 가격</p> */}
-        </div>
+        <div className="product-order-list">{/* <h2>베스트 상품</h2> */}</div>
         <ul className="Store-productmenu-drugbox">
           {drugs.map(product => (
             <li key={product.id} className="Store-productmenu-drug">
@@ -105,7 +118,10 @@ const Store = () => {
             </li>
           ))}
         </ul>
-        <div>
+        <div className="movebt">
+          {drugsIndexArray.map(index => (
+            <button onClick={() => movePage(index)}>{index}</button>
+          ))}
           {/* <button onClick={() => movePage(1)}>1</button>
           <button onClick={() => movePage(2)}>2</button>
           <button onClick={() => movePage(3)}>3</button>
