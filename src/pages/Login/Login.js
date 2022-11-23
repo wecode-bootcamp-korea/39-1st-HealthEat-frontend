@@ -43,7 +43,7 @@ const Login = () => {
       .then(response => response.json())
       .then(data => {
         localStorage.setItem('token', data.accessToken); // 로컬 스토리지에 토큰 저장 하는 코드!
-        navigate('/main'); // 로그인 성공시 main 페이지로 가는 코드!
+        navigate('/signUp'); // 로그인 성공시 main 페이지로 가는 코드!
       });
   };
 

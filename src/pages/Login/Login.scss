@@ -1,4 +1,7 @@
-* {
+@import '../../styles/common';
+@import '../../styles/mixin';
+
+body {
   text-decoration: none;
   color: inherit;
 }
