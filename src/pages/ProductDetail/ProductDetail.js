@@ -13,9 +13,3 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
-
-// const ProductDetail = () => {
-//   return <div />;
-// };
-
-// export default ProductDetail;
