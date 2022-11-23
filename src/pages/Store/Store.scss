@@ -1,0 +1,176 @@
+@import '../../styles/common';
+@import '../../styles/mixin';
+
+.Store {
+  display: flex;
+  padding-top: 12vh;
+  padding-left: 600px;
+}
+
+.Store-leftbody {
+  display: flex;
+  position: fixed;
+  top: calc(50%);
+  left: 0;
+  transform: scale(0.8) translateY(-50%);
+  transition: 0.3s;
+  img {
+    width: 650px;
+  }
+}
+.Store-leftbody-bodys {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  // 버튼 초기화
+  & > button {
+    overflow: hidden;
+    border: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    text-indent: -9999px;
+  }
+
+  .eyes {
+    position: absolute;
+    top: 74px;
+    left: 267px;
+    width: 135px;
+    height: 57px;
+    background: url(../../assets/images/store/eye1.png) 0px 0px,
+      url(../../assets/images/store/eye1.png) 68px 0px;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &:hover {
+      background: url(../../assets/images/store/eye.png) 0px 0px,
+        url(../../assets/images/store/eye.png) 68px 0px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .intestine {
+    position: absolute;
+    top: 443px;
+    left: 273px;
+    width: 117px;
+    height: 113px;
+    background-image: url(../../assets/images/store/free-icon-large-intestine-4615532.png);
+
+    &:hover {
+      background-image: url(../../assets/images/store/free-icon-large-intestine-4615540.png);
+    }
+  }
+
+  .liver {
+    position: absolute;
+    top: 366px;
+    left: 262px;
+    width: 100px;
+    height: 100px;
+    background-image: url(../../assets/images/store/free-icon-liver-288228.png);
+
+    &:hover {
+      background-image: url(../../assets/images/store/free-icon-liver-361496.png);
+    }
+  }
+
+  .joint {
+    position: absolute;
+    top: 614px;
+    left: 200px;
+    width: 100px;
+    height: 100px;
+    background-image: url(../../assets/images/store/free-icon-joint-4701886.png);
+
+    &:hover {
+      background-image: url(../../assets/images/store/free-icon-joint-4710034.png);
+    }
+  }
+}
+.Store-productmenu {
+  h2 {
+    padding: 40px 0 40px;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  .product-order-list {
+    h5 {
+      margin: 30px;
+      font-weight: 600;
+      span {
+        color: #ff5c35;
+        font-weight: bolder;
+      }
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 25px;
+    font-weight: 500;
+  }
+}
+.Store-productmenu-drugbox {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  overflow: hidden;
+  text-align: center;
+
+  .Store-productmenu-drug {
+    width: calc(33.333% - 30px);
+    margin: 0 15px 30px;
+  }
+  a {
+    text-decoration: none;
+  }
+  img {
+    width: 250px;
+    height: 250px;
+    border-radius: 10%;
+    box-shadow: 3px 3px 3px lightgray;
+  }
+}
+
+.text-area {
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  > h3 {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    white-space: break-spaces;
+    > em {
+      color: #858589;
+    }
+  }
+  > p {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    > em {
+      color: #ff5c35;
+    }
+  }
+}
+.movebt {
+  text-align: center;
+}
+
+// @media (max-width: 1400px) {
+//   .Store-leftbody {
+//     transform: scale(0.9) translateY(-50%);
+//   }
+// }
+
+// @media (max-width: 1200px) {
+//   .Store-leftbody {
+//     transform: scale(0.8) translateY(-50%);
+//   }
+// }
