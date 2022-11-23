@@ -12,14 +12,20 @@ const SignUp = () => {
   });
   const { email } = userValue;
 
-  const emailRegExp =
-    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-
-  const isEmailValid = emailRegExp.test(email);
+  const [isEmailError, setIsEmailError] = useState(false);
 
   const getUserInfo = e => {
     const { name, value } = e.target;
     setUserValue({ ...userValue, [name]: value });
+
+    const emailRegExp =
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+
+    if (emailRegExp.test(email) || value === '') {
+      setIsEmailError(false);
+    } else {
+      setIsEmailError(true);
+    }
   };
 
   const alertMsg = e => {
@@ -85,6 +91,9 @@ const SignUp = () => {
       }),
     }).then(() => navigate('/SignIn'));
   };
+
+  console.log(isEmailError);
+
   return (
     <>
       {/* <h1 className="signup-title">SignUp</h1> */}
@@ -110,6 +119,7 @@ const SignUp = () => {
           <label htmlFor="user-email">아이디(이메일)</label>
           <input
             id="user-email"
+            name="email"
             type="email"
             placeholder="아이디(이메일)을 입력해 주세요."
             minLength="5"
@@ -117,52 +127,77 @@ const SignUp = () => {
             value={email}
             onChange={getUserInfo}
           />
-          <span>{isEmailValid ? '' : '이메일 형식에 맞게 작성해주세요'}</span>
+          <span className="emailalert">
+            {isEmailError ? '이메일 형식에 맞게 작성해주세요' : ''}
+          </span>
           <label htmlFor="user-password">비밀번호</label>
           <input
             id="user-password"
-            type="text"
+            type="password"
             placeholder="비밀번호를 입력해 주세요."
           />
           <label htmlFor="user-password">비밀번호</label>
           <input
             id="user-password"
-            type="text"
+            type="password"
             placeholder="비밀번호를 다시 입력해 주세요."
             value={password}
             onChange={handleChangePassword}
           />
         </div>
-        <div className="all-terms-agree-wrap">
-          <label>
-            <input type="checkbox" name="agree" onChange={handleAllcheck} />
-            <span />
-            모두 동의하기
-          </label>
-          <label />
-          <input
-            type="checkbox"
-            name="age"
-            checked={age}
-            onChange={handleCheckbox}
-          />
-          만 14세 이상입니다
-          <input
-            type="checkbox"
-            name="terms"
-            checked={terms}
-            onChange={handleCheckbox}
-          />
-          이용 약관 동의
-          <input
-            type="checkbox"
-            name="marketing"
-            checked={marketing}
-            onChange={handleCheckbox}
-          />
-          마케팅 수신 동의 <p id="option">(선택)</p>
-        </div>
-        <button className="signupBtn">회원가입</button>
+        <section className="agree-container">
+          <div className="checkbox-item first">
+            <input
+              type="checkbox"
+              name="agree"
+              checked={marketing}
+              onChange={handleAllcheck}
+            />
+            <h3>모두 동의하기</h3>
+          </div>
+
+          <div className="checkbox-item">
+            <input
+              type="checkbox"
+              name="age"
+              checked={age}
+              onChange={handleCheckbox}
+            />
+            <p> 만 14세 이상입니다</p>
+          </div>
+
+          <div className="checkbox-item">
+            <input
+              type="checkbox"
+              name="terms"
+              checked={terms}
+              onChange={handleCheckbox}
+            />
+
+            <div className="view-text">
+              <p> 이용 약관 동의</p>
+              <span>전문보기</span>
+            </div>
+          </div>
+          <div className="checkbox-item">
+            <input
+              type="checkbox"
+              name="marketing"
+              checked={marketing}
+              onChange={handleCheckbox}
+            />
+
+            <div className="view-text">
+              <p>
+                마케팅 수신 동의 <small className="selectText">(선택)</small>
+              </p>
+              <span>전문보기</span>
+            </div>
+          </div>
+          <div className="btnContainer">
+            <button className="signupBtn">회원가입</button>
+          </div>
+        </section>
       </form>
     </>
   );
