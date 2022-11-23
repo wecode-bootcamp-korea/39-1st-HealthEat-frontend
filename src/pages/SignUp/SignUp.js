@@ -162,7 +162,7 @@ const SignUp = () => {
           />
           마케팅 수신 동의 <p id="option">(선택)</p>
         </div>
-        <button className="signup-btn">회원가입</button>
+        <button className="signupBtn">회원가입</button>
       </form>
     </>
   );

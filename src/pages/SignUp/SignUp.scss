@@ -53,7 +53,11 @@
   }
 }
 
-.signup-btn {
+.signupBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 50px;
   width: 450px;
   height: 48px;
