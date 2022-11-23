@@ -23,5 +23,39 @@
     position: fixed;
     right: 5vw;
     width: 30vw;
+
+    .product-name-brand {
+      color: aliceblue;
+    }
+
+    .product-price {
+      .price {
+        margin: 10px;
+      }
+      .discounted-price {
+        font-weight: 200;
+      }
+      .fixed-price {
+        opacity: 0.7;
+      }
+      .discount-rate {
+        color: red;
+      }
+    }
+
+    .product-info {
+      font-weight: 100;
+    }
+
+    .product-select-quantity {
+      @include flex(row, center, center);
+    }
+
+    .product-buy-button {
+      button {
+        width: 80px;
+        color: red;
+      }
+    }
   }
 }
