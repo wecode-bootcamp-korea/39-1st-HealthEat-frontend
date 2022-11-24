@@ -7,7 +7,6 @@ const Login = () => {
   const alertMsg = e => {
     e.preventDefault();
     //로그인 정보 확인
-    console.log(userValue);
     fetch('http://10.58.52.143:3000/users/signin', {
       method: 'POST',
       headers: {
@@ -30,8 +29,8 @@ const Login = () => {
         )
       )
       .then(data => {
-        localStorage.setItem('token', data.accessToken);
-        navigate('/main');
+        localStorage.setItem('TOKEN', data.accessToken);
+        navigate('/');
       });
   };
   const [loginAlert, setLoginAlert] = useState('');

@@ -6,7 +6,7 @@
 
   .product-demonstration {
     @include flex(column, flex-start, center);
-    width: 55vw;
+    width: 45vw;
     padding: 20px;
 
     .product-image {
@@ -20,11 +20,18 @@
     }
 
     .product-description {
-      margin: 20px 10px;
+      align-self: flex-start;
+      width: 100%;
+      margin: 120px 10px;
+      margin-bottom: 50px;
 
       h2 {
         margin-bottom: 10px;
         font-size: x-large;
+      }
+
+      p {
+        line-height: 3;
       }
 
       &-table {
@@ -40,7 +47,8 @@
 
     .product-review {
       align-self: flex-start;
-      margin: 20px 10px;
+      margin: 50px 10px;
+      margin-bottom: 150px;
 
       h2 {
         margin-bottom: 10px;
@@ -49,22 +57,31 @@
 
       &-list {
         padding: 10px;
+
+        li {
+          margin: 5px 0px;
+          padding: 5px 0px 5px 5px;
+          border-bottom: 1px solid #efefef;
+          font-size: 15px;
+        }
       }
     }
   }
 
   .buy-bar-area {
-    width: 30vw;
+    width: 34vw;
     height: 50vh;
   }
 
   .buy-bar-content {
+    @include flex(column, center, center);
     position: fixed;
-    top: 32vh;
-    right: 7vw;
-    width: 30vw;
+    top: 30vh;
+    right: 10vw;
+    width: 28vw;
 
     .product-name-brand {
+      align-self: flex-start;
       margin: 20px 0px;
 
       #name {
@@ -80,8 +97,11 @@
     }
 
     .product-price {
+      align-self: flex-start;
       @include flex(row, flex-start, center);
-      margin: 20px 0px;
+      width: 100%;
+      padding: 15px 0px;
+      border-bottom: 1px solid #d4d2d2;
 
       .price {
         margin: 10px;
@@ -100,7 +120,8 @@
     }
 
     .product-info {
-      margin: 20px 0px;
+      align-self: flex-start;
+      margin: 30px 20px;
       font-weight: 100;
 
       p {
@@ -109,7 +130,12 @@
     }
 
     .product-select-quantity {
-      margin: 20px 0px;
+      align-self: center;
+      width: 18vw;
+      margin: 5px 0px;
+      padding: 25px 0px;
+      border-radius: 20px;
+      background-color: #ebe8e8;
       @include flex(row, center, center);
 
       .handling-quantity-icons {
@@ -119,6 +145,7 @@
 
     .product-buy-button {
       @include flex(row, center, center);
+      margin-top: 25px;
 
       .btn {
         width: 14vw;
@@ -129,8 +156,10 @@
       }
 
       .like-btn {
-        margin-right: 10px;
-        border: none;
+        margin-right: 15px;
+        border: 1px solid #d4d2d2;
+        background-color: white;
+        color: black;
       }
 
       .buy-btn {
