@@ -1,8 +1,15 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
-  return <div />;
+  const params = useParams();
+  return (
+    <section className="detail">
+      <h1>This is Detail Page</h1>
+      <h2>path parameter = {params.id}</h2>
+    </section>
+  );
 };
 
 export default ProductDetail;

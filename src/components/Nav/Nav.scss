@@ -13,6 +13,12 @@
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2')
     format('woff2');
 }
+.nav {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  background-color: white;
+}
 
 .nav {
   position: fixed;
