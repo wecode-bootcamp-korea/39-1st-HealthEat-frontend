@@ -30,7 +30,7 @@
 
     img {
       width: 100vw;
-      height: 88vh;
+      height: 95vh;
     }
   }
 
@@ -55,7 +55,7 @@
 .menu-list {
   @include flex(column, center, center);
   width: 100vw;
-  height: 35vh;
+  height: 45vh;
 
   &-title {
     @include flex(row, flex-start, center);

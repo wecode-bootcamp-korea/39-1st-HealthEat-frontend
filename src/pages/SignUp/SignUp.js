@@ -1,6 +1,7 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.scss';
+
 const SignUp = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
@@ -11,6 +12,7 @@ const SignUp = () => {
   });
   const { email } = userValue;
   const [isEmailError, setIsEmailError] = useState(false);
+
   const getUserInfo = e => {
     const { name, value } = e.target;
     setUserValue({ ...userValue, [name]: value });
@@ -22,6 +24,7 @@ const SignUp = () => {
       setIsEmailError(true);
     }
   };
+
   const alertMsg = e => {
     e.preventDefault();
     if (email.length === 0 || password.length === 0) {
@@ -31,11 +34,13 @@ const SignUp = () => {
       return alert('회원가입 성공');
     }
   };
+
   const [agreeList, setAgreeList] = useState({
     age: false,
     terms: false,
     marketing: false,
   });
+
   const { age, terms, marketing } = agreeList;
   const handleCheckbox = e => {
     const { name } = e.target;
@@ -65,8 +70,9 @@ const SignUp = () => {
     setPassword(e.target.value);
   };
 
-  const registeSignup = () => {
-    console.log('test');
+  const registeSignup = e => {
+    e.preventDefault();
+
     fetch('http://10.58.52.143:3000/users/signup', {
       method: 'POST',
       headers: {
@@ -78,20 +84,24 @@ const SignUp = () => {
         email: email,
         password: password,
       }),
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.message === 'success') {
-          navigate('/login');
-        } else {
-          alert('로그인 실패');
-        }
-      });
+    }).then(response => {
+      if (response.status === 201) {
+        alert('회원가입을 축하합니다!');
+        navigate('/login');
+      }
+    });
+    // .then(data => {
+    //   if (data.message === 'success') {
+    //     navigate('/login');
+    //   } else {
+    //     alert('회원가입 실패');
+    //   }
+    // });
   };
   return (
     <>
       {/* <h1 className="signup-title">SignUp</h1> */}
-      <form onSubmit={alertMsg}>
+      <form onSubmit={registeSignup}>
         <h2 className="signup-title">회원가입</h2>
         <div className="all-inputs">
           <label htmlFor="user-name">이름</label>
@@ -185,7 +195,7 @@ const SignUp = () => {
             </div>
           </div>
           <div className="btnContainer">
-            <button className="signupBtn" onClick={registeSignup}>
+            <button className="signupBtn" type="submit">
               회원가입
             </button>
           </div>
@@ -194,4 +204,5 @@ const SignUp = () => {
     </>
   );
 };
+
 export default SignUp;

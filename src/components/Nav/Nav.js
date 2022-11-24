@@ -28,9 +28,9 @@ export default function Nav() {
             </Link>
           </li>
           <li className="nav-bar-righticon-item">
-            <Link to="/">
+            <Link to="/login">
               <img
-                src="/images/free-icon-user-1077063.png"
+                src="/images/login.png"
                 alt="마이페이지"
                 width="25px"
                 height="25px"

@@ -20,26 +20,11 @@ const Store = () => {
         setDrugs(productData.products);
       });
   }, [searchParams.toString(), offset, limit]);
-  console.log(drugs);
 
   const movePage = pageNumber => {
     searchParams.set('offset', (pageNumber - 1) * 6);
     setSearchParams(searchParams);
   };
-
-  // const sendEyes = () => {
-  //   setSearchParams({ category: 1 });
-  // };
-  // const sendIntestine = () => {
-  //   setSearchParams({ category: 4 });
-  // };
-  // const sendLiver = () => {
-  //   setSearchParams({ category: 2 });
-  // };
-  // const sendJoint = () => {
-  //   setSearchParams({ category: 3 });
-  // };
-
   const categories = {
     sendEyes: 1,
     sendIntestine: 4,
@@ -126,10 +111,6 @@ const Store = () => {
           {drugsIndexArray.map(index => (
             <button onClick={() => movePage(index)}>{index}</button>
           ))}
-          {/* <button onClick={() => movePage(1)}>1</button>
-          <button onClick={() => movePage(2)}>2</button>
-          <button onClick={() => movePage(3)}>3</button>
-          <button onClick={() => movePage(4)}>4</button> */}
         </div>
       </div>
     </div>
