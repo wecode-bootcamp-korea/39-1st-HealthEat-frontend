@@ -30,8 +30,8 @@ const Login = () => {
         )
       )
       .then(data => {
-        localStorage.setItem('token', data.accessToken); // 로컬 스토리지에 토큰 저장 하는 코드!
-        navigate('/main'); // 로그인 성공시 main 페이지로 가는 코드!
+        localStorage.setItem('token', data.accessToken);
+        navigate('/main');
       });
   };
   const [loginAlert, setLoginAlert] = useState('');
@@ -42,7 +42,7 @@ const Login = () => {
   const { email } = userValue;
   const emailRegExp =
     /^[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-  const isEmailValid = emailRegExp.test(email);
+  const isEmailValid = !emailRegExp.test(email) && '양식을 확인해주세요';
   const getUserInfo = e => {
     const { name, value } = e.target;
     setUserValue({ ...userValue, [name]: value });
@@ -55,15 +55,13 @@ const Login = () => {
           className="user-input"
           type="text"
           name="email"
-          placeholder="이메일 또는 전화번호를 입력하세요."
+          placeholder="이메일을 입력하세요."
           minLength="5"
           maxLength="30"
-          title="아이디입력"
+          title="이메일입력"
           onChange={getUserInfo}
         />
-        <span className="emailrewrite">
-          {isEmailValid ? '' : '이메일 형식에 맞게 작성해주세요'}
-        </span>
+        <span className="emailrewrite">{email.length > 0 && isEmailValid}</span>
         <input
           className="user-input"
           type="password"
