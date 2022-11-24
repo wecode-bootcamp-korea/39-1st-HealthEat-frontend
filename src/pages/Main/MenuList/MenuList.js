@@ -2,14 +2,30 @@ import React from 'react';
 import ListItem from './ListItem/ListItem';
 
 const MENU_LIST_DATAS = [
-  { name: '눈', image: '/images/mainListIcons/eye-care.png' },
-  { name: '간', image: '/images/mainListIcons/liver.png' },
-  { name: '관절 / 뼈', image: '/images/mainListIcons/articulation.png' },
-  { name: '장', image: '/images/mainListIcons/intestine.png' },
-  { name: '다이어트', image: '/images/mainListIcons/diet-food.png' },
-  { name: '위 / 소화', image: '/images/mainListIcons/stomach.png' },
-  { name: '피부', image: '/images/mainListIcons/skin-care.png' },
-  { name: '피로 / 활력', image: '/images/mainListIcons/energy-drink.png' },
+  { category: 1, name: '눈', image: '/images/mainListIcons/eye-care.png' },
+  { category: 2, name: '간', image: '/images/mainListIcons/liver.png' },
+  {
+    category: 3,
+    name: '관절 / 뼈',
+    image: '/images/mainListIcons/articulation.png',
+  },
+  { category: 4, name: '장', image: '/images/mainListIcons/intestine.png' },
+  {
+    category: 5,
+    name: '다이어트',
+    image: '/images/mainListIcons/diet-food.png',
+  },
+  {
+    category: 6,
+    name: '위 / 소화',
+    image: '/images/mainListIcons/stomach.png',
+  },
+  { category: 7, name: '피부', image: '/images/mainListIcons/skin-care.png' },
+  {
+    category: 8,
+    name: '피로 / 활력',
+    image: '/images/mainListIcons/energy-drink.png',
+  },
 ];
 
 const MenuList = () => {
@@ -20,7 +36,7 @@ const MenuList = () => {
       </div>
       <div className="menu-list-items">
         {MENU_LIST_DATAS.map((data, idx) => (
-          <ListItem key={idx} name={data.name} imageSrc={data.image} />
+          <ListItem key={idx} menuListDatas={data} />
         ))}
       </div>
     </article>

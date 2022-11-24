@@ -41,7 +41,7 @@ const PromotionSlide = () => {
   };
 
   const prevSlide = () => {
-    setCurrentSlide((currentSlide - 1 + 4) % slideLength);
+    setCurrentSlide((currentSlide - 1 + slideLength) % slideLength);
   };
 
   return (

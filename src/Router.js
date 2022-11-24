@@ -6,7 +6,6 @@ import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import SignUp from './pages/SignUp/SignUp';
 import Store from './pages/Store/Store';
-import Footer from './components/Footer/Footer';
 import Nav from './components/Nav/Nav';
 
 export default function Router() {
@@ -21,7 +20,6 @@ export default function Router() {
         <Route path="/store" element={<Store />} />
         <Route path="/detail/:id" element={<ProductDetail />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }

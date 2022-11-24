@@ -18,6 +18,7 @@
 }
 
 .promotion-slide {
+  position: relative;
   width: 100%;
   overflow: hidden;
 
@@ -29,7 +30,7 @@
 
     img {
       width: 100vw;
-      height: 60vh;
+      height: 88vh;
     }
   }
 
@@ -40,10 +41,13 @@
 
   &-arrow-icons {
     @include flex(row, center, center);
+    position: absolute;
+    bottom: 1vh;
+    left: 47.5vw;
     padding: 10px 0px;
 
     .arrow-icons {
-      margin: 0px 5px;
+      margin: 0px 0.5vw;
     }
   }
 }
@@ -51,7 +55,7 @@
 .menu-list {
   @include flex(column, center, center);
   width: 100vw;
-  height: 30vh;
+  height: 35vh;
 
   &-title {
     @include flex(row, flex-start, center);

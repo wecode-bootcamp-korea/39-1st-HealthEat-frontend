@@ -1,18 +1,14 @@
 [
   {
-    "image": "https://pds.joongang.co.kr/news/FbMetaImage/202105/58a63fee-dcef-4f75-82ad-578558416a64.jpg",
+    "image": "/images/mainPromotionSlideImages/diana-polekhina-v0ZjnfxnP60-unsplash.jpg",
     "heading": "Slide One"
   },
   {
-    "image": "https://health.chosun.com/site/data/img_dir/2021/03/12/2021031202132_0.jpg",
+    "image": "/images/mainPromotionSlideImages/leohoho-DRchVK5apjw-unsplash.jpg",
     "heading": "Slide Two"
   },
   {
-    "image": "https://tgzzmmgvheix1905536.cdn.ntruss.com/2020/04/01bda6a6594d45c18cbb3171263474f0",
+    "image": "/images/mainPromotionSlideImages/supliful-571ysEZSMFU-unsplash.jpg",
     "heading": "Slide Three"
-  },
-  {
-    "image": "http://newsimg.hankookilbo.com/2020/02/03/202002031191031114_1.jpg",
-    "heading": "Slide Four"
   }
 ]
