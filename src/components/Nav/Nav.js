@@ -30,7 +30,7 @@ export default function Nav() {
           <li className="nav-bar-righticon-item">
             <Link to="/">
               <img
-                src="images/free-icon-user-1077063.png"
+                src="/images/free-icon-user-1077063.png"
                 alt="마이페이지"
                 width="25px"
                 height="25px"

@@ -1,14 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import ProductDemonstration from './ProductDemonstration/ProductDemonstration';
+import BuyBar from './BuyBar/BuyBar';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
-  const params = useParams();
+  const [productData, setProductData] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch(`http://10.58.52.143:3000/products?id=${id}`, {
+      method: 'GET',
+    })
+      .then(result => result.json())
+      .then(data => setProductData(data.products[0]));
+  }, [id]);
+
+  // const id = 1;
+
+  // useEffect(() => {
+  //   fetch(`/data/ProductDetail.json`, {
+  //     method: 'GET',
+  //   })
+  //     .then(result => result.json())
+  //     .then(data => setProductData(data[0]));
+  // }, [id]);
+
+  if (!productData.id) return null;
+
   return (
-    <section className="detail">
-      <h1>This is Detail Page</h1>
-      <h2>path parameter = {params.id}</h2>
-    </section>
+    <div className="product-detail">
+      <ProductDemonstration productData={productData} />
+      <BuyBar productID={id} productData={productData} />
+    </div>
   );
 };
 
