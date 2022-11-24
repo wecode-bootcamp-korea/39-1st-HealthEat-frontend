@@ -1,0 +1,113 @@
+@import '../../styles/common';
+@import '../../styles/mixin';
+* {
+  color: inherit;
+  text-decoration: none;
+}
+.signup-title {
+  margin-bottom: 32px;
+  color: #333;
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+}
+.all-inputs {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  input {
+    width: 450px;
+    height: 56px;
+    margin: 15px 0;
+    padding: 0 30px;
+    border: 1px solid #d7d7d7;
+    border-radius: 4px;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: #b7b7b7;
+      font-size: 16px;
+    }
+  }
+}
+.all-terms-agree-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  input[id='inputCheck'] {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #bcbcbc;
+    cursor: pointer;
+  }
+}
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  .signupBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    height: 48px;
+    margin: 0;
+    border: none;
+    border-radius: 50px;
+    background-color: blue;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+.agree-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+  width: 450px;
+  margin: auto;
+  .checkbox-item {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+    input[type='checkbox'] {
+      margin-right: 19px;
+      margin-bottom: 16px;
+    }
+    &:first-child {
+      margin-bottom: 32px;
+      border-bottom: 1px solid #d7d7d7;
+    }
+    .view-text {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      span {
+        border-bottom: 1px solid #b7b7b7;
+        color: #b7b7b7;
+      }
+      .selecttext {
+        color: #b7b7b7;
+      }
+    }
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  p {
+    font-size: 15px;
+    font-weight: 400;
+  }
+}
+.emailalert {
+  color: red;
+  font-size: 15px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
