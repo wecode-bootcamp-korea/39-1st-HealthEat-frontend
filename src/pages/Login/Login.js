@@ -3,6 +3,7 @@ import '../Login/Login.scss';
 import { Link, useNavigate } from 'react-router-dom';
 const Login = () => {
   const navigate = useNavigate();
+  const a = true;
   const alertMsg = e => {
     e.preventDefault();
     //로그인 정보 확인
@@ -38,9 +39,9 @@ const Login = () => {
     email: '',
     password: '',
   });
-  const { email, password } = userValue;
+  const { email } = userValue;
   const emailRegExp =
-    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+    /^[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
   const isEmailValid = emailRegExp.test(email);
   const getUserInfo = e => {
     const { name, value } = e.target;
