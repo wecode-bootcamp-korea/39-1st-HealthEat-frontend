@@ -1,181 +1,144 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Cart/Cart.scss';
-import CartItem from './CartItem.js';
 
-const Cart = () => {
-  const [cartItemList, setCartItemList] = useState();
-  const setPaymentItem = () => {
-    const paymentItem = cartItemList.filter(obj => {
-      return obj.isCheck === true;
-    });
-    localStorage.setItem('orderList', JSON.stringify(paymentItem));
-    return paymentItem;
-  };
+const MyPage = () => {
+  const [myPageList, setMyPageList] = useState([
+    {
+      user: [{}],
+      order: [{}],
+      likes: [{}],
+      reviews: [{}],
+    },
+  ]);
+
+  // useEffect(() => {
+  //   fetch("/data/kimdongki/Women.json")
+  //     .then((response) => response.json())
+  //     .then((result) => setMyPageList(result));
+  // }, []);
+
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const userInfo = searchParams.get("");
+  // const likeList = searchParams.get("");
+  // const orderList = searchParams.get("");
+  //
+  // useEffect(() => {
+  //   fetch(``)
+  //     .then((response) => response.json())
+  //     .then((result) => setWomen(result));
+  // }, [userInfo, likeList, orderList]);
 
   useEffect(() => {
-    // // mock data fetch
-    // fetch("/data/shimdongseup/cartData.json")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     // isCheck 항목 추가해서 리스트 저장
-    //     const newCartList = data.map((obj) => {
-    //       return { ...obj, isCheck: true };
-    //     });
-    //     setCartItemList(newCartList);
-    //   });
-
-    //backend API fetch
-    fetch('http://10.58.52.241:3000/cart', {
-      method: 'GET',
+    fetch('/', {
       headers: {
         authorization: localStorage.getItem('TOKEN'),
       },
     })
-      .then(res => res.json())
-      .then(data => {
-        // isCheck 항목 추가해서 리스트 저장
-        // console.log(data.baskets);
-        // const arr = [...data.baskets];
-        const newCartList = data.baskets.map(obj => {
-          return { ...obj, isCheck: true };
-        });
-        setCartItemList(newCartList);
-      });
+      .then(response => response.json())
+      .then(result => setMyPageList(result));
   }, []);
 
-  // 총 주문 수량 계산
-  const calTotalAmount = arr => {
-    if (arr) {
-      let totalAmount = 0;
-      arr.forEach(obj => {
-        if (obj.isCheck) {
-          totalAmount += obj.amount;
-        }
-      });
-      return totalAmount;
-    }
-  };
-  // 총 주문 가격 계산
-  const calTotalPrice = arr => {
-    if (arr) {
-      let priceTotal = 0;
-      arr.forEach(obj => {
-        if (obj.isCheck) {
-          priceTotal += obj.amount * obj.productPrice;
-        }
-      });
-      return priceTotal;
-    }
-  };
-
-  // console.log(cartItemList);
-  const totalAmount = calTotalAmount(cartItemList);
-  const totalPrice = calTotalPrice(cartItemList);
-
   return (
-    <div className="wrapCart">
-      <div className="orderStep">
-        <span>01 SHOPPING BAG</span>
-        <span>02 ORDER</span>
-        <span>03 ORDER CONFIRMED</span>
+    <div className="myPage">
+      <div className="myPageLeft">
+        <section className="myName">
+          <div className="username">
+            <h3>이름</h3>
+            <ul>
+              <li>
+                <p className="txt">
+                  나의 하트 <em>0</em>
+                </p>
+                <p className="txt">
+                  나의 리뷰 <em>0</em>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section className="myPoint">
+          <ul>
+            <li>
+              <span>회원이름</span>
+              <em className="userName">이름</em>
+            </li>
+            <li>
+              <span>사용가능포인트</span>
+              <em>1000000</em>
+            </li>
+          </ul>
+        </section>
       </div>
-
-      <div className="itemList">
-        <div className="columnName">
-          <div className="itemInfoCol">상품 정보</div>
-          <div className="quantityCol">수량</div>
-          <div className="orderPriceCol">주문금액</div>
-          <div className="deliveryChargeCol">배송비</div>
-        </div>
-        {cartItemList &&
-          cartItemList.map((obj, index) => (
-            <CartItem
-              itemInfo={obj}
-              key={index}
-              setCartItemList={setCartItemList}
-              cartItemList={cartItemList}
-              index={index}
-              deleteItem={function deleteComment() {
-                // // 백엔드 연결전 코드
-                // const deletedItem = [...cartItemList];
-                // deletedItem.splice(index, 1);
-                // setCartItemList(deletedItem);
-                //백앤드 연결시 아래코드로 대체
-                fetch('http://10.58.52.241:3000/cart', {
-                  method: 'DELETE',
-                  headers: {
-                    'Content-Type': 'application/json;charset=utf-8',
-                    authorization: localStorage.getItem('TOKEN'),
-                  },
-                  body: JSON.stringify({
-                    basketIds: [obj.basketId],
-                  }),
+      <div className="main">
+        <div className="inserted">
+          <section className="myOrder">
+            <h3 className="myTit">최근 주문</h3>
+            <ul className="myOrderInserted">
+              <li className="myOrderTit">
+                <div className="myOrderTb">
+                  <div className="date">주문일</div>
+                  <div className="history">주문내역</div>
+                  <div className="num">주문번호</div>
+                  <div className="amount">결제금액</div>
+                </div>
+              </li>
+            </ul>
+            <div className="orderListNon">
+              {myPageList[0].order.length > 0 ? (
+                myPageList[0].order.map((obj, index) => {
+                  return <div>주문 내용</div>;
                 })
-                  .then(response => {
-                    if (response.status !== 204) {
-                      throw new Error('error');
-                    } else {
-                      //fetch 성공시
-                      const deletedItem = [...cartItemList];
-                      deletedItem.splice(index, 1);
-                      setCartItemList(deletedItem);
-                    }
-                  })
-                  .catch(error => {
-                    alert('장바구니 삭제에 실패하였습니다.');
-                  });
-              }}
-            />
-          ))}
-        <div className="itemListFooter">
-          {/* <button>선택상품 삭제</button> */}
-          <span>장바구니는 접속 종료 후 60일 동안 보관됩니다.</span>
-        </div>
-      </div>
-      <div className="calculator">
-        <div className="columnName">
-          <div>총 주문금액</div>
-          <div>총 배송비</div>
-          <div>총 결제금액</div>
-        </div>
-        <div className="calculation">
-          <div className="totalPrice">
-            <div className="price">
-              {totalPrice?.toLocaleString()}
-              <h3>원</h3>
+              ) : (
+                <p>최근 주문내역이 없습니다</p>
+              )}
             </div>
-            <span>총 {totalAmount}개</span>
-          </div>
-          <div className="wrapIcon">
-            <div className="material-icons icon">add_circle</div>
-          </div>
-          <div className="totalPrice">
-            <div className="price">
-              0<h3>원</h3>
-            </div>
-          </div>
-          <div className="wrapIcon">
-            <div className="material-icons icon">pause_circle_filled</div>
-          </div>
-          <div className="totalPrice">
-            <div className="price">
-              {totalPrice?.toLocaleString()}
-              <h3>원</h3>
-            </div>
+            <Link to="#" className="more">
+              더보기
+            </Link>
+          </section>
+          <div className="splitWrap">
+            <section className="myHeart">
+              <h3 className="myTit">MY HEART</h3>
+              <div className="heartWrap">
+                <h4 className="heartTit">Products</h4>
+                <div className="orderListNon">
+                  {myPageList[0].likes.length > 0 ? (
+                    myPageList[0].likes.map((obj, index) => {
+                      return (
+                        <div>
+                          <div>좋아요</div>
+                          좋아요한 상품 이름 이미지
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <p>상품 하트내역이 없습니다</p>
+                  )}
+                </div>
+              </div>
+              <div className="secondHeartWrap">
+                <h4 className="secondHeartTit">Review</h4>
+                <div className="orderListNon">
+                  {myPageList[0].reviews.length > 0 ? (
+                    myPageList[0].reviews.map((obj, index) => {
+                      return <div>리뷰 내용</div>;
+                    })
+                  ) : (
+                    <p>리뷰 작성내역이 없습니다</p>
+                  )}
+                </div>
+                <ul className="heartListIn" />
+              </div>
+              <Link to="#" className="more">
+                더보기
+              </Link>
+            </section>
           </div>
         </div>
-      </div>
-      <div className="bottomButton">
-        <Link className="continueShopping" to="#">
-          CONTINUE SHOPPING
-        </Link>
-        <Link onClick={setPaymentItem} className="checkout" to="/Payment">
-          CHECK OUT
-        </Link>
       </div>
     </div>
   );
 };
 
-export default Cart;
+export default MyPage;
