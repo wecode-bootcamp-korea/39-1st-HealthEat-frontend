@@ -16,7 +16,7 @@ li {
   text-align: -webkit-match-parent;
 }
 
-.myPage {
+.mypage {
   display: flex;
   position: relative;
   min-width: 900px;
@@ -25,14 +25,14 @@ li {
   padding: 0 50px 100px;
 }
 
-.myPageLeft {
+.mypageleft {
   box-sizing: border-box;
   flex: none;
   width: 230px;
   padding: 0 50px 0 0;
 }
 
-.myName {
+.myname {
   margin-bottom: 38px;
 
   h3 {
@@ -62,7 +62,7 @@ li {
   }
 }
 
-.myPoint {
+.mypoint {
   position: absolute;
   top: 0;
   right: 50px;
@@ -127,7 +127,7 @@ li {
   padding-top: 190px;
 }
 
-.myOrder {
+.myorder {
   position: relative;
   overflow: hidden;
 
@@ -138,19 +138,19 @@ li {
     line-height: 30px;
   }
 
-  .orderList {
+  .orderlist {
     border-bottom: 1px solid #d4d4d4;
   }
 }
 
-.myTit {
+.mytit {
   position: relative;
   border-bottom: 4px solid #000;
   color: #000;
 }
 
-.myOrderInserted {
-  .myOrderTit {
+.myorderinserted {
+  .myordertit {
     > div {
       height: 30px;
       border-bottom: 1px solid #303033;
@@ -163,7 +163,7 @@ li {
     }
   }
 
-  .myOrderTb {
+  .myordertb {
     display: flex;
     position: relative;
     align-items: center;
@@ -201,7 +201,7 @@ li {
   }
 }
 
-.orderListNon {
+.orderlistnon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -235,19 +235,19 @@ li {
   border-right: 1px solid #000;
 }
 
-.splitWrap {
+.splitwrap {
   margin-top: 100px;
 
-  .myHeart {
+  .myheart {
     position: relative;
 
-    .myTit {
+    .mytit {
       font-size: 26px;
     }
   }
 }
 
-.myTit {
+.mytits {
   position: relative;
   padding-bottom: 10px;
   border-bottom: 4px solid #000;
@@ -256,14 +256,15 @@ li {
   line-height: 30px;
 }
 
-.heartWrap:first-of-type {
+.heartwrap:first-of-type {
   margin-top: 20px;
 }
 
-.heartWrap {
+.heartwrap {
+  display: flex;
   border-bottom: 1px solid #d4d4d4;
 
-  .heartTit {
+  .hearttit {
     margin-top: 32px;
     margin-bottom: 10px;
     font-size: 16px;
@@ -274,24 +275,24 @@ li {
     margin-bottom: 22px;
   }
 
-  .heartListIn {
+  .heartlistin {
     display: flex;
     flex-wrap: wrap;
     margin-left: -20px;
   }
 }
 
-.secondHeartWrap {
+.secondheartwrap {
   border: none;
 
-  .secondHeartTit {
+  .secondhearttit {
     margin-top: 18px;
     margin-bottom: 10px;
     font-size: 16px;
     font-weight: bold;
   }
 
-  .heartListIn {
+  .heartlistin {
     display: flex;
     flex-wrap: wrap;
     margin-left: -20px;

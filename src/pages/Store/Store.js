@@ -95,8 +95,8 @@ const Store = () => {
           </h5>
         </div>
         <ul className="Store-productmenu-drugbox">
-          {drugs.map(product => (
-            <li key={product.id} className="Store-productmenu-drug">
+          {drugs.map((product, i) => (
+            <li key={i} className="Store-productmenu-drug">
               <Link key={product.id} to={`/detail/${product.id}`}>
                 <img alt={`${product.id}번약`} src={product.thumbnail} />
                 <div className="text-area">
@@ -123,8 +123,10 @@ const Store = () => {
           ))}
         </ul>
         <div className="movebt">
-          {drugsIndexArray.map(index => (
-            <button onClick={() => movePage(index)}>{index}</button>
+          {drugsIndexArray.map((index, i) => (
+            <button key={i} onClick={() => movePage(index)}>
+              {index}
+            </button>
           ))}
           {/* <button onClick={() => movePage(1)}>1</button>
           <button onClick={() => movePage(2)}>2</button>
