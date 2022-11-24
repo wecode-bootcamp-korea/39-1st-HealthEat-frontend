@@ -1,22 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
-const BuyBar = ({ productData }) => {
+const BuyBar = ({ productID, productData }) => {
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
+  const navigate = useNavigate();
 
-  const {
-    name,
-    information,
-    brand_name,
-    // thumbnail,
-    price,
-    // made_from,
-    // expiry_date,
-    // stock,
-    discount_rate,
-  } = productData;
+  const { name, information, brand_name, price, discount_rate } = productData;
 
   useEffect(() => {
     setTotalPrice(parseInt(price) * quantity);
@@ -40,15 +32,17 @@ const BuyBar = ({ productData }) => {
 
       <section className="buy-bar-content">
         <div className="product-name-brand">
-          <h1>{name}</h1>
-          <h3>{brand_name}</h3>
+          <span id="name">{name}</span>
+          <span id="brand-name">{brand_name}</span>
         </div>
         <div className="product-price">
           <span className="price discounted-price">
-            {Math.round(totalPrice * (1 - discount_rate))}
+            {`${Math.round(totalPrice * (1 - discount_rate)).toLocaleString(
+              'ko-KR'
+            )}원`}
           </span>
           <span className="price fixed-price">
-            {Math.round(totalPrice * 1)}
+            {`${Math.round(totalPrice * 1).toLocaleString('ko-KR')}원`}
           </span>
           <span className="price discount-rate">{`${
             discount_rate * 100
@@ -58,12 +52,50 @@ const BuyBar = ({ productData }) => {
           <p>{information}</p>
         </div>
         <div className="product-select-quantity">
-          <FontAwesomeIcon icon={faMinusCircle} onClick={minusQuantity} />
+          <span>구매 수량</span>
+          <FontAwesomeIcon
+            className="handling-quantity-icons"
+            icon={faMinusCircle}
+            onClick={minusQuantity}
+          />
           {quantity}
-          <FontAwesomeIcon icon={faPlusCircle} onClick={plusQuantity} />
+          <FontAwesomeIcon
+            className="handling-quantity-icons"
+            icon={faPlusCircle}
+            onClick={plusQuantity}
+          />
         </div>
         <div className="product-buy-button">
-          <button>구매하기</button>
+          <button
+            className="like-btn btn"
+            onClick={() => {
+              fetch('http://10.58.52.143:3000/likes', {
+                method: 'POST',
+                header: {
+                  Authorization: localStorage.getItem('token'),
+                },
+                body: productID,
+              })
+                .then(response => response.json())
+                .then(data => {
+                  if (data.message === 'success') {
+                    alert('찜하기 성공');
+                  } else {
+                    alert('찜하기 실패');
+                  }
+                });
+            }}
+          >
+            찜하기
+          </button>
+          <button
+            className="buy-btn btn"
+            onClick={() => {
+              navigate('/cart');
+            }}
+          >
+            구매하기
+          </button>
         </div>
       </section>
     </>

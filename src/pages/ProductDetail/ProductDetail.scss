@@ -7,36 +7,92 @@
   .product-demonstration {
     @include flex(column, flex-start, center);
     width: 55vw;
-    // .product-image {
-    // }
-    // .product-description {
-    // }
-    // .product-review {
-    // }
+    padding: 20px;
+
+    .product-image {
+      @include flex(row, center, center);
+      width: 100%;
+      margin: 20px;
+
+      img {
+        width: 50vw;
+      }
+    }
+
+    .product-description {
+      margin: 20px 10px;
+
+      h2 {
+        margin-bottom: 10px;
+        font-size: x-large;
+      }
+
+      &-table {
+        margin-top: 20px;
+        border: 2px solid black;
+
+        td {
+          padding: 5px;
+          border: 1px solid gray;
+        }
+      }
+    }
+
+    .product-review {
+      align-self: flex-start;
+      margin: 20px 10px;
+
+      h2 {
+        margin-bottom: 10px;
+        font-size: x-large;
+      }
+
+      &-list {
+        padding: 10px;
+      }
+    }
   }
 
   .buy-bar-area {
     width: 30vw;
+    height: 50vh;
   }
 
   .buy-bar-content {
     position: fixed;
-    right: 5vw;
+    top: 32vh;
+    right: 7vw;
     width: 30vw;
 
     .product-name-brand {
-      color: aliceblue;
+      margin: 20px 0px;
+
+      #name {
+        display: block;
+        padding: 10px;
+        font-size: x-large;
+        font-weight: 700;
+      }
+
+      #brand-name {
+        margin: 0px 10px;
+      }
     }
 
     .product-price {
+      @include flex(row, flex-start, center);
+      margin: 20px 0px;
+
       .price {
         margin: 10px;
       }
       .discounted-price {
-        font-weight: 200;
+        padding-left: 10px;
+        font-size: larger;
+        font-weight: 700;
       }
       .fixed-price {
-        opacity: 0.7;
+        opacity: 0.4;
       }
       .discount-rate {
         color: red;
@@ -44,17 +100,43 @@
     }
 
     .product-info {
+      margin: 20px 0px;
       font-weight: 100;
+
+      p {
+        list-style: 150%;
+      }
     }
 
     .product-select-quantity {
+      margin: 20px 0px;
       @include flex(row, center, center);
+
+      .handling-quantity-icons {
+        margin: 0px 15px;
+      }
     }
 
     .product-buy-button {
-      button {
-        width: 80px;
-        color: red;
+      @include flex(row, center, center);
+
+      .btn {
+        width: 14vw;
+        height: 5vh;
+        border-radius: 10px;
+        font-size: small;
+        font-weight: 800;
+      }
+
+      .like-btn {
+        margin-right: 10px;
+        border: none;
+      }
+
+      .buy-btn {
+        border: none;
+        background-color: #ff5c35;
+        color: white;
       }
     }
   }
