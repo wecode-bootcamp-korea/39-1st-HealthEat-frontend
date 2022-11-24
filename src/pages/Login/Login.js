@@ -42,7 +42,7 @@ const Login = () => {
   const { email } = userValue;
   const emailRegExp =
     /^[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-  const isEmailValid = !emailRegExp.test(email) && '양식을 확인해주세요';
+  const isEmailValid = !emailRegExp.test(email) && '양식을 확인해주세요.';
   const getUserInfo = e => {
     const { name, value } = e.target;
     setUserValue({ ...userValue, [name]: value });
