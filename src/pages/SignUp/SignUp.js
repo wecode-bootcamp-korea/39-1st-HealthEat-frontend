@@ -25,7 +25,7 @@ const SignUp = () => {
   const alertMsg = e => {
     e.preventDefault();
     if (email.length === 0 || password.length === 0) {
-      return alert('입력란을 채워주세요');
+      return alert('입력란을 채워주세요.');
     } else {
       SignUp();
       return alert('회원가입 성공');
@@ -122,7 +122,7 @@ const SignUp = () => {
             onChange={getUserInfo}
           />
           <span className="emailalert">
-            {isEmailError ? '이메일 형식에 맞게 작성해주세요' : ''}
+            {isEmailError ? '이메일 형식에 맞게 작성해주세요.' : ''}
           </span>
           <label htmlFor="user-password">비밀번호</label>
           <input
