@@ -5,7 +5,7 @@
   text-decoration: none;
 }
 .signup-title {
-  margin-bottom: 32px;
+  margin-bottom: 111px;
   color: #333;
   font-size: 28px;
   font-weight: 400;
@@ -68,9 +68,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 32px;
   width: 450px;
   margin: auto;
+  padding: 32px;
   .checkbox-item {
     display: flex;
     justify-content: flex-start;
@@ -106,8 +106,8 @@
   }
 }
 .emailalert {
+  margin-bottom: 15px;
   color: red;
   font-size: 15px;
   font-size: 14px;
-  margin-bottom: 15px;
 }

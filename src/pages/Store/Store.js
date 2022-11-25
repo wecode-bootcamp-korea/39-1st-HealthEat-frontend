@@ -56,18 +56,15 @@ const Store = () => {
           <button onClick={() => sendCategory('sendEyes')} className="eyes">
             눈
           </button>
-
           <button
             onClick={() => sendCategory('sendIntestine')}
             className="intestine"
           >
             소화기관
           </button>
-
           <button onClick={() => sendCategory('sendLiver')} className="liver">
             간
           </button>
-
           <button onClick={() => sendCategory('sendJoint')} className="joint">
             관절
           </button>
