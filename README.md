@@ -1,16 +1,20 @@
 <div align="center">
 
 # 💊HealthEat
-  
-## (피리 마켓, 필리를 모델링 한 프로젝트)
+
+#### '피리마켓' '필리' 사이트를 모델링 한 프로젝트로, 약과 건강식품을 판매하는 커머스 사이트입니다.
+
+<br/>
 
 <img width="1166" alt="스크린샷" src="public/images/screenshot.png">
 
-### console.log("건강을 먹다")'
+### <code>console.log("건강을 먹다")</code>
 
 </div>
 
-## Health Eat 팀원
+<br/>
+
+### HealthEat 팀원
 
 - 프론트엔드
 
@@ -18,9 +22,7 @@
 
 - 백엔드
 
-   - 이은영, 조상원(PM)
-   
-<br>
+  - 이은영, 조상원(PM)
 
 ---
 
@@ -41,14 +43,13 @@
 
 ### 적용 기술
 
-> - <strong>프론트엔드</strong> : JavaScript(ES6), React.js, Sass, React-router-dom, Fontawesome
-> - <strong>백엔드</strong> : JavaScript(ES6), Node.js, Express, JSON Web TOKEN, Bcrypt, My SQL, Multer
-> - <strong>커뮤니케이션 및 버전 관리</strong> : Slack, Trello, Postman, Git / Github
+- <strong>프론트엔드</strong> : JavaScript(ES6), React.js, Sass, React-router-dom, Fontawesome
+- <strong>백엔드</strong> : JavaScript(ES6), Node.js, Express, JSON Web TOKEN, Bcrypt, My SQL, Multer
+- <strong>커뮤니케이션 및 버전 관리</strong> : Slack, Trello, Postman, Git / Github
 
 <br>
 
-구현 기능
-<br>
+### 구현 기능
 
 1. 회원가입 / 로그인 페이지
 
@@ -68,8 +69,9 @@
    ✔ fetch API를 활용한 렌더링<br>
    ✔ 쿼리스티링을 활용<br>
    ✔ 페이지네이션 구현
-   <br>
-   
+
+<br>
+
 4. 상세 페이지
 
    ✔ 백엔드에서 제품의 상세 데이터를 받아 상품 디테일 페이지에 표시<br>
@@ -77,11 +79,13 @@
 
   <br>
 
-  - 이 프로젝트는 '피리 마켓', '필리' 사이트를 참조하여 만들었습니다.
+- 이 프로젝트는 '피리 마켓', '필리' 사이트를 참조하여 만들었습니다.
 
-  - 실무 수준의 프로젝트이지만 학습용으로 만들었기 때문에 이 코드를 활용하여 이득을 취하거나 무단 배포할 경우 법적으로 문제될 수 있습니다.
+- 실무 수준의 프로젝트이지만 학습용으로 만들었기 때문에 이 코드를 활용하여 이득을 취하거나 무단 배포할 경우 법적으로 문제될 수 있습니다.
 
   <br>
   <br>
 
-  HealthEat 프로젝트는 '피리 마켓', '필리'를 모델링 한 프로젝트이며, 백지 상태에서 구현되었습니다. 기획 의도를 현실로 바꾸는, 기획의 ‘구현’이라 생각합니다. 따라서, 기획 과정을 건너 뛰고 구현에 집중하기 위해 피리 마켓, 필리 라는 서비스를 참고한 것일 뿐, 프로젝트의 모든 기능은, 실제 서비스 개발과정과 마찬가지로, 백지 상태에서 구현되었음을 밝힙니다.
+<!-- 기획 의도를 현실로 바꾸는, 기획의 ‘구현’이라 생각합니다. 따라서,  -->
+
+HealthEat 프로젝트는 '피리 마켓', '필리'를 모델링하여 새로운 커머스 사이트를 구현한 프로젝트 입니다. 기획 과정을 건너 뛰고 구현에 집중하기 위해 '피리 마켓', '필리'라는 서비스를 참고한 것일 뿐, 프로젝트의 모든 기능은 실제 서비스의 개발 과정과 마찬가지로 백지 상태에서 구현되었음을 밝힙니다.
